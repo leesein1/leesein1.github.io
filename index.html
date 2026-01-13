@@ -1,493 +1,849 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>SILEE - 이세인의 포트폴리오</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    </head>
-    <!-- start:: body tag -->
-    <body id="page-top">
-        <!-- start:: Navigation-->
-        <!-- description:: 사이드바 메뉴 추가 및 선택 부-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/사진2.jpg" alt="..." /></span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive" style="font-size: 1.5rem;">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#project">Project</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#context">Context</a></li>
-                </ul>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SILEE - 이세인의 포트폴리오</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+    <!-- Font Awesome icons -->
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- (선택) FontAwesome CSS (v5 아이콘 사용 시) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+      id="sideNav"
+    >
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-none d-lg-block">
+          <img
+            class="img-fluid img-profile rounded-circle mx-auto mb-2"
+            src="assets/img/사진2.jpg"
+            alt="..."
+          />
+        </span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse"
+        id="navbarResponsive"
+        style="font-size: 1.5rem"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#education"
+              >Education</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#experience"
+              >Experience</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#toy-project"
+              >Toy Project</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#context">Context</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- /Navigation -->
+
+    <!-- Page Content -->
+    <div class="container-fluid p-0">
+      <!-- About -->
+      <section class="resume-section" id="about">
+        <div class="resume-section-content">
+          <h1 class="mb-0" style="display: flex">
+            <div class="rand-title-div" style="margin-right: 10px">
+              풀스택 개발자
             </div>
-        </nav>
-        <!--end:: Navigation-->
+            <span class="lable-value">이세인</span> <span>🙋‍♂️</span>
+          </h1>
 
-        <!-- start:: Page Content-->
-        <div class="container-fluid p-0">
-            <!-- start:: About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0" style="display: flex;">
-                        <div class="rand-title-div "style="margin-right:10px;">풀스택 개발자</div>
-                        <span class="lable-value">이세인</span> <span>🙋‍♂️</span>
-                    </h1>
-                    <div class="subheading mb-5 contact-info">
-                        <div class="info-item" style="margin-bottom: 5px; margin-top: 5px;">
-                            <span class="label">TEL.</span>
-                            <span class="lable-value">010-3100-7025</span>
-                        </div>
-                        <div class="info-item" style="margin-bottom: 5px;">
-                            <span class="label">E-mail.</span>
-                            <a class="lable-value" href="mailto:name@email.com">miira6010@gmail.com</a>
-                        </div>
-                        <div class="info-item" style="margin-bottom: 5px;">
-                            <span class="label">Address.</span>
-                            <span class="lable-value">
-                                인천광역시 부평구 경원대로1344번길 34
-                            </span>
-                        </div>
-                    </div>
+          <div class="subheading mb-5 contact-info">
+            <div class="info-item" style="margin-bottom: 5px; margin-top: 5px">
+              <span class="label">TEL.</span>
+              <span class="lable-value">010-3100-7025</span>
+            </div>
+            <div class="info-item" style="margin-bottom: 5px">
+              <span class="label">E-mail.</span>
+              <a class="lable-value" href="mailto:miira6010@gmail.com"
+                >miira6010@gmail.com</a
+              >
+            </div>
+            <div class="info-item" style="margin-bottom: 5px">
+              <span class="label">Address.</span>
+              <span class="lable-value">인천광역시 부평구</span>
+            </div>
+          </div>
 
-                    <!-- <p class="lead mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p> -->
-                    <p class="lead mb-5">
-                        안녕하세요, <strong>풀스택 개발자 이세인</strong>입니다.<br>
-                        공간정보 특성화 고등학교에 재학하며, 전공이었던 토목과 함께 <strong>웹 개발의 기초</strong>를 배웠습니다.<br>
-                        처음 만든 웹페이지에서 <strong>머릿속에 그린 흐름이 그대로 구현되는 경험</strong>은<br>
-                        처음 느끼는 만족이었고, 더 많은 기능들을 만들어 보고 싶었습니다.<br><br>
-                        
-                        <strong>오류는 끝까지 파고들고</strong>, “이건 좀 다르게 하고 싶어요”라는 요청엔<br>
-                        <strong>“물론이죠!”</strong>라고 말하는 게 저다운 방식입니다.<br><br>
-                        
-                        <strong>기능을 넘어서, 사용자 니즈를 정확히 충족시키는 개발자</strong>가 되기 위해 발전하고 있습니다.
-                    </p>
+          <p class="lead mb-5">
+            안녕하세요, <strong>풀스택 개발자 이세인</strong>입니다.<br />
+            공간정보 특성화 고등학교에 재학하며, 전공이었던 토목과 함께
+            <strong>웹 개발의 기초</strong>를 배웠습니다.<br />
+            처음 만든 웹페이지에서
+            <strong>머릿속에 그린 흐름이 그대로 구현되는 경험</strong>은<br />
+            처음 느끼는 만족이었고, 더 많은 기능들을 만들어 보고 싶었습니다.<br /><br />
 
-                    <!-- description :: 소셜네트워크 -->
-                    <div class="social-icons">
-                        <!-- GitHub -->
-                        <a class="social-icon" href="https://github.com/leesein1" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                        </a>
+            <strong>오류는 끝까지 파고들고</strong>, “이건 좀 다르게 하고
+            싶어요”라는 요청엔<br />
+            <strong>“물론이죠!”</strong>라고 말하는 게 저다운 방식입니다.<br /><br />
 
-                        <!-- Instagram -->
-                        <a class="social-icon" href="https://www.instagram.com/se__in?igsh=MW51Znl6d29sOGYxOA%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <!--end:: About-->
-            <hr class="m-0" />
-            <!-- start:: Education-->
-            <section class="resume-section" id="education">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">학력사항</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">인천일보아카데미</h3>
-                            <div class="subheading mb-3">LOL게임 빅데이터를 활용한 웹 시각화 양성과정</div>
-                            <div>자바 Spring Boot 기반 웹 개발과 Python 머신러닝을 활용한 LoL API 빅데이터 분석 과정 수료</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2023.12 - 2024.06</span></div>
-                    </div>
+            <strong
+              >기능을 넘어서, 사용자 니즈를 정확히 충족시키는 개발자</strong
+            >가 되기 위해 발전하고 있습니다.
+          </p>
 
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">인하공업전문대학</h3>
-                            <div class="subheading mb-3">지구환경신소재공학부</div>
-                            <div>토목공학과</div>
-                            <p>GPA: 4.1</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2017.03 - 2022.02</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">인천기계공업고등학교</h3>
-                            <div class="subheading mb-3">도시건설정보과(공간정보특성화 부)</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">2014.03 - 2017.02</span></div>
-                    </div>
-                </div>
-            </section>
-            <!-- end:: Educatioh-->
-            <hr class="m-0" />
-            <!-- start:: Experience-->
-            <section id="experience" class="resume-section">
-            <div class="resume-section-content">
-                <div class="title-exp mb-4 d-flex align-items-center gap-3">
-                    <span class="h2 fw-bold">경력사항</span>
-                    <!-- <span class="badge bg-secondary fs-5">총 1년 9개월</span> -->
-                </div>
+          <div class="social-icons">
+            <a
+              class="social-icon"
+              href="https://github.com/leesein1"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              class="social-icon"
+              href="https://www.instagram.com/se__in?igsh=MW51Znl6d29sOGYxOA%3D%3D&utm_source=qr"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- /About -->
 
-                <!-- 회사 이름 + 기간 -->
-                <div class="mb-5">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h4 class="fw-bold mb-0">㈜벨텍소프트</h4>
-                        <span class="text-primary">2025.07.24 ~ 재직중</span>
-                    </div>
+      <hr class="m-0" />
 
-                    <div class="mb-1 text-muted">공공 시스템 SM / 전산 개발자</div>
+      <!-- Education -->
+      <section class="resume-section" id="education">
+        <div class="resume-section-content">
+          <h2 class="mb-5">학력사항</h2>
 
-                    <!-- 업무 내용 -->
-                    <div class="mt-3">
-                        <h5 class="text-dark">🏛 공공기관 업무 시스템 운영 및 유지보수 <span class="lable-value">(2025.07 ~ 재직중)</span></h5>
-                        <ul>
-                            <li>수탁 폐수 처리 전자인계·인수 업무 시스템 운영 및 유지보수(SM) 담당</li>
-                            <li>JSP 기반 화면 기능 개선 및 MyBatis 쿼리 수정·신규 작성</li>
-                            <li>Batch 프로그램 운영 및 정기 데이터 처리 오류 대응</li>
-                            <li>Naver Map / VWorld API 기반 위치·지도 기능 연계 및 시각화 개선</li>
-                            <li>대외 시스템(API) 연계 기능 운영, 장애 분석 및 로그 기반 문제 해결</li>
-                        </ul>
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between mb-5"
+          >
+            <div class="flex-grow-1">
+              <h3 class="mb-0">인천일보아카데미</h3>
+              <div class="subheading mb-3">
+                LOL게임 빅데이터를 활용한 웹 시각화 양성과정
+              </div>
+              <div>
+                자바 Spring Boot 기반 웹 개발과 Python 머신러닝을 활용한 LoL API
+                빅데이터 분석 과정 수료
+              </div>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">2023.12 - 2024.06</span>
+            </div>
+          </div>
 
-                        <div class="mt-2">
-                        <strong>Skill Keywords:</strong><br/>
-                        <span class="badge bg-light text-dark">Java</span>
-                        <span class="badge bg-light text-dark">JSP</span>
-                        <span class="badge bg-light text-dark">MyBatis</span>
-                        <span class="badge bg-light text-dark">eGovFramework</span>
-                        <span class="badge bg-light text-dark">Oracle DB</span>
-                        <span class="badge bg-light text-dark">JEUS</span>
-                        <span class="badge bg-light text-dark">UNIX</span>
-                        <span class="badge bg-light text-dark">SVN</span>
-                        </div>
-                    </div>
-                </div>
+          <div
+            class="d-flex flex-column flex-md-row justify-content-between mb-5"
+          >
+            <div class="flex-grow-1">
+              <h3 class="mb-0">인하공업전문대학</h3>
+              <div class="subheading mb-3">지구환경신소재공학부</div>
+              <div>토목공학과</div>
+              <p>GPA: 4.1</p>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">2017.03 - 2022.02</span>
+            </div>
+          </div>
 
-                <div class="mb-5">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h4 class="fw-bold mb-0">㈜씨에스아이엔테크</h4>
-                    <span class="text-primary">2023.08 ~ 2025.05</span>
-                </div>
-                <div class="mb-1 text-muted">소프트웨어 2팀 / 전산 개발자 <span class="badge bg-primary"></span></div>
+          <div class="d-flex flex-column flex-md-row justify-content-between">
+            <div class="flex-grow-1">
+              <h3 class="mb-0">인천기계공업고등학교</h3>
+              <div class="subheading mb-3">
+                도시건설정보과(공간정보특성화 부)
+              </div>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">2014.03 - 2017.02</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Education -->
 
-                <!-- 개별 프로젝트들 -->
-                <div class="mt-3">
-                    <h5 class="text-dark">🚆 열차운행정보 분석 웹 제작 <span class="lable-value">(2024.05 ~ 2025.03)</span></h5>
-                    <ul>
-                        <li>SignalR 기반 실시간 고장 알림 시스템 구축 및 고장 검색 , 통계 처리</li>
-                        <li>지도 기반 열차 위치 시각화, ERP 연계 고장 처리 이력 자동화</li>
-                        <li>코레일 피드백 기반 UI 개선, 모바일 대응 화면 개발</li>
-                    </ul>
-                    <div class="mt-2">
-                    <strong>Skill Keywords:</strong><br/>
-                    <span class="badge bg-light text-dark">C#</span>
-                    <span class="badge bg-light text-dark">.NET Core 3.1</span>
-                    <span class="badge bg-light text-dark">SignalR</span>
-                    <span class="badge bg-light text-dark">Leaflet.js</span>
-                    <span class="badge bg-light text-dark">Service Broker</span>
-                    <span class="badge bg-light text-dark">SQL Dependency</span>
-                    <span class="badge bg-light text-dark">MSSQL</span>
-                    <span class="badge bg-light text-dark">IIS</span>
-                    </div>
-                </div>
+      <hr class="m-0" />
 
-                <div class="mt-4">
-                    <h5 class="text-dark">🔔 사내전산 알림 시스템 구축 <span class="lable-value">(2024.02 ~ 2024.04)</span></h5>
-                    <ul>
-                        <li>비즈톡 API 연동하여 사내 설비 및 품질관리, 복지 시설 관련 알림 기능을 위한 카카오톡 전송 프로그램 개발</li>
-                        <li>Service Broker + SQL Dependency 구조 설계</li>
-                        <li>중복 발송 방지, 토큰 오류 복구 등 장애 대응 로직 구현</li>
-                    </ul>
-                    <div class="mt-2">
-                        <strong>Skill Keywords:</strong><br/>
-                        <span class="badge bg-light text-dark">C#</span>
-                        <span class="badge bg-light text-dark">.NET 6.0</span>
-                        <span class="badge bg-light text-dark">Service Broker</span>
-                        <span class="badge bg-light text-dark">SQL Dependency</span>
-                        <span class="badge bg-light text-dark">MSSQL</span>
-                        <span class="badge bg-light text-dark">Kakao BizTalk API</span>
-                    </div>
-                </div>
+      <!-- Experience -->
+      <section id="experience" class="resume-section">
+        <div class="resume-section-content">
+          <div class="title-exp mb-4 d-flex align-items-center gap-3">
+            <span class="h2 fw-bold">경력사항</span>
+          </div>
+
+          <!-- (1) 벨텍소프트 -->
+          <div class="mb-5">
+            <div class="d-flex justify-content-between align-items-center">
+              <h4 class="fw-bold mb-0">㈜벨텍소프트</h4>
+              <span class="text-primary">2025.07.24 ~ 재직중</span>
+            </div>
+
+            <div class="mb-1 text-muted">공공 시스템 SM / 전산 개발자</div>
+
+            <div class="mt-3">
+              <h5 class="text-dark">
+                🏛 공공기관 업무 시스템 운영 및 유지보수
+                <span class="lable-value">(2025.07 ~ 재직중)</span>
+              </h5>
+              <ul>
+                <li>
+                  수탁 폐수 처리 전자인계·인수 업무 시스템 운영 및 유지보수(SM)
+                  담당
+                </li>
+                <li>JSP 기반 화면 기능 개선 및 MyBatis 쿼리 수정·신규 작성</li>
+                <li>Batch 프로그램 운영 및 정기 데이터 처리 오류 대응</li>
+                <li>
+                  Naver Map / VWorld API 기반 위치·지도 기능 연계 및 시각화 개선
+                </li>
+                <li>
+                  대외 시스템(API) 연계 기능 운영, 장애 분석 및 로그 기반 문제
+                  해결
+                </li>
+              </ul>
+
+              <div class="mt-2">
+                <strong>Skill Keywords:</strong><br />
+                <span class="badge bg-light text-dark">Java</span>
+                <span class="badge bg-light text-dark">JSP</span>
+                <span class="badge bg-light text-dark">MyBatis</span>
+                <span class="badge bg-light text-dark">eGovFramework</span>
+                <span class="badge bg-light text-dark">Oracle DB</span>
+                <span class="badge bg-light text-dark">JEUS</span>
+                <span class="badge bg-light text-dark">UNIX</span>
+                <span class="badge bg-light text-dark">SVN</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- (2) 씨에스아이엔테크 -->
+          <div class="mb-5">
+            <div class="d-flex justify-content-between align-items-center">
+              <h4 class="fw-bold mb-0">㈜씨에스아이엔테크</h4>
+              <span class="text-primary">2023.08 ~ 2025.05</span>
+            </div>
+            <div class="mb-1 text-muted">소프트웨어 2팀 / 전산 개발자</div>
+
+            <div class="mt-3">
+              <h5 class="text-dark">
+                🚆 열차운행정보 분석 웹 제작
+                <span class="lable-value">(2024.05 ~ 2025.03)</span>
+              </h5>
+              <ul>
+                <li>
+                  SignalR 기반 실시간 고장 알림 시스템 구축 및 고장 검색, 통계
+                  처리
+                </li>
+                <li>
+                  지도 기반 열차 위치 시각화, ERP 연계 고장 처리 이력 자동화
+                </li>
+                <li>코레일 피드백 기반 UI 개선, 모바일 대응 화면 개발</li>
+              </ul>
+
+              <div class="mt-2">
+                <strong>Skill Keywords:</strong><br />
+                <span class="badge bg-light text-dark">C#</span>
+                <span class="badge bg-light text-dark">.NET Core 3.1</span>
+                <span class="badge bg-light text-dark">SignalR</span>
+                <span class="badge bg-light text-dark">Leaflet.js</span>
+                <span class="badge bg-light text-dark">Service Broker</span>
+                <span class="badge bg-light text-dark">SQL Dependency</span>
+                <span class="badge bg-light text-dark">MSSQL</span>
+                <span class="badge bg-light text-dark">IIS</span>
+              </div>
             </div>
 
             <div class="mt-4">
-                <h5 class="text-dark">🛠 사내 인트라넷 및 전산 시스템 유지보수<span class="lable-value">(2023.08 ~ 2025.05)</span></h5>
-                <ul>
-                    <li>계측기, 공구, 자재 등 물품 관리 시스템 개발 및 점검일 관리 자동화</li>
-                    <li>PLC 설비 제어 및 상태 알림 → 카카오톡 연동 알림 시스템 구현</li>
-                    <li>사내 음료 주문~제조~완료 관리 웹 구축, 사용자별 주문 로그 제공</li>
-                    <li>전력 시세(SMP) 자동 크롤링 윈도우 프로그램 개발</li>
-                    <li>Classic ASP 기반 시스템 유지보수 및 기능 개선</li>
-                </ul>
-                <div class="mt-2">
-                    <strong>Skill Keywords:</strong><br/>
-                    <span class="badge bg-light text-dark">Classic ASP</span>
-                    <span class="badge bg-light text-dark">MSSQL</span>
-                    <span class="badge bg-light text-dark">Windows Forms</span>
-                    <span class="badge bg-light text-dark">JavaScript</span>
-                    <span class="badge bg-light text-dark">Kakao API</span>
-                </div>
-        </div>
-            </section>
-
-
-            <!-- end:: Experience-->
-            <hr class="m-0" />
-            <!-- Skills-->
-            <section class="resume-section" id="skills">
-            <div class="resume-section-content">
-                <h2 class="mb-5">SKILL</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>언어 & 프레임워크</h4>
-                        <ul>
-                            <li>C#</li>
-                            <li>Classic ASP</li>
-                            <li>HTML / CSS / JavaScript</li>
-                            <li>.NET Core 3.1 / .NET 6.0 이상</li>
-                            <li>SignalR</li>
-                            <li>jQuery</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>서버 · 배포 · DB</h4>
-                        <ul>
-                            <li>Microsoft SQL Server</li>
-                            <li>MariaDB</li>
-                            <li>IIS</li>
-                            <li>AWS EC2</li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>Tools & IDEs</h4>
-                        <ul>
-                            <li>Git / GitHub / Sourcetree</li>
-                            <li>SVN / TortoiseSVN</li>
-                            <li>Excel / PowerPoint / Visio</li>
-                            <li>Visual Studio</li>
-                            <li>Visual Studio Code</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>기타 기술</h4>
-                        <ul>
-                            <li>Kakao BizTalk API</li>
-                        </ul>
-                    </div>
-                </div>
+              <h5 class="text-dark">
+                🔔 사내전산 알림 시스템 구축
+                <span class="lable-value">(2024.02 ~ 2024.04)</span>
+              </h5>
+              <ul>
+                <li>
+                  비즈톡 API 연동하여 사내 설비 및 품질관리, 복지 시설 관련 알림
+                  기능을 위한 카카오톡 전송 프로그램 개발
+                </li>
+                <li>Service Broker + SQL Dependency 구조 설계</li>
+                <li>중복 발송 방지, 토큰 오류 복구 등 장애 대응 로직 구현</li>
+              </ul>
+              <div class="mt-2">
+                <strong>Skill Keywords:</strong><br />
+                <span class="badge bg-light text-dark">C#</span>
+                <span class="badge bg-light text-dark">.NET 6.0</span>
+                <span class="badge bg-light text-dark">Service Broker</span>
+                <span class="badge bg-light text-dark">SQL Dependency</span>
+                <span class="badge bg-light text-dark">MSSQL</span>
+                <span class="badge bg-light text-dark">Kakao BizTalk API</span>
+              </div>
             </div>
-            </section>
 
-            <hr class="m-0" />
-            <!-- start:: Project-->
-            <section class="resume-section" id="project">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Project</h2>
-
-                    <div class="row-project">
-                        <div class="row mb-3">
-                            <div class="col-md-3">
-                                <div class="fw-bold" style="font-size: 2.3rem; color:#000; ">실시간 고장 관제</div>
-                            </div>
-                            <div class="col-md-9" style="margin-top:13px;"> 
-                                <h3 class="lable-value">2025-05 ~ 2025-05</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div style="position: relative; width: 450px;">
-                                    <!-- 모니터 배경 이미지 -->
-                                    <img src="./assets/img/monitor.png" alt="" style="width: 100%; display: block;">
-                                    <!-- 모니터 안에 들어갈 GIF -->
-                                    <img src="./assets/gif/web.gif" alt="web gif" style="position: absolute; top: 6%; left: 1.5%; width: 97%; height: 61%; pointer-events: none;">
-                                </div>
-                            </div>
-                            <div class="col-md-7" style="padding-left:25px; display: flex; flex-direction: column;">
-                                <h3><strong>About.</strong></h3>
-                                <p>
-                                    차량에서 발생하는 고장이나 사고 정보를 <strong>실시간으로 감지</strong>하고, <br>
-                                    지도 기반으로 위치를 시각화하여 <strong>신속한 상황 대응</strong>을 돕는 웹 관제 솔루션입니다.
-                                </p>
-                                <p>
-                                    <strong>실시간 알림 + 지도 시각화 + 통계 대시보드</strong> 기능을 통해 <br>
-                                    운영자가 고장 현황을 한눈에 파악하고 빠르게 조치할 수 있도록 지원합니다.
-                                </p>
-                                <hr>
-                                <h3><strong>Stack.</strong></h3>
-                                <p style="font-size: 0.95em;">
-                                    <strong>Frontend:</strong> HTML, CSS, JavaScript, Bootstrap, jQuery, Leaflet.js<br>
-                                    <strong>Backend:</strong> .NET 8 MVC, SignalR, C#<br>
-                                    <strong>Database:</strong> MSSQL, SQL Dependency, Service Broker<br>
-                                    <strong>Infra:</strong> AWS EC2, IIS
-                                </p>
-                                <p class="h4">
-                                    <a href="https://github.com/leesein1/FaultMon" target="_blank" style="text-decoration: none; color: inherit; margin-right: 20px;">
-                                        <i class="fab fa-github" style="font-size: 1.2em; margin-right: 6px;"></i>
-                                        <strong>GitHub</strong>
-                                    </a>
-                                    <a href="http://silee-portfolio1.shop/" target="_blank" style="text-decoration: none; color: inherit;">
-                                        <i class="fas fa-globe" style="font-size: 1.2em; margin-right: 6px;"></i>
-                                        <strong>Site</strong>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div class="row-project">
-                    <style>
-                        .row-project{
-                            margin-bottom: 60px;
-                        }
-                    </style>
-                    <div class="row-project">
-                        <div class="row mb-3">
-                            <div class="col-md-3">
-                                <div class="fw-bold" style="font-size: 2.2rem; color:#000;">𝕏(Twitter) 클론</div>
-                            </div>
-                            <div class="col-md-9" style="margin-top:13px;"> 
-                                <h3 class="lable-value">2025.07 ~ 진행 중</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div style="position: relative; width: 450px;">
-                                    <img src="./assets/img/monitor.png" alt="" style="width: 100%; display: block;">
-                                    <img src="./assets/img/dev.png" alt="x-dev gif" style="position: absolute; top: 7%; left: 15%; width: 70%; height: 61%; pointer-events: none;">
-                                </div>
-                            </div>
-                            <div class="col-md-7" style="padding-left:25px; display: flex; flex-direction: column;">
-                                <h3><strong>About.</strong></h3>
-                                <p>
-                                    <strong>X (Twitter) 기능을 모방</strong>한 SNS 웹 애플리케이션입니다.<br>
-                                    최근 <strong>React 및 TypeScript</strong>에 관심이 생겨 공부하던 중 Firebase를 활용하여<br>
-                                    <strong>각종 기능(이미지, oAuth로그인 등)</strong> 및 <strong>AWS가 아닌 호스팅</strong>까지 공부하고 싶어<br>
-                                    준비한 프로젝트입니다.<br>
-                                    <br>아래 <strong>Github 및 Site</strong>를 참고해주세요! 
-                                <hr>
-                                <h3><strong>Stack.</strong></h3>
-                                <p style="font-size: 0.95em;">
-                                    <strong>Frontend:</strong> React, TypeScript, Vite <br>
-                                    <strong>Backend (BaaS):</strong> Firebase (Auth, Firestore, Storage)<br>
-                                    <strong>Infra:</strong> Firebase Hosting
-                                </p>
-                                <p class="h4">
-                                    <a href="https://github.com/leesein1/x-clone" target="_blank" style="text-decoration: none; color: inherit; margin-right: 20px;">
-                                        <i class="fab fa-github" style="font-size: 1.2em; margin-right: 6px;"></i>
-                                        <strong>GitHub</strong>
-                                    </a>
-                                    <a href="https://x-clone-d17bb.web.app" target="_blank" style="text-decoration: none; color: inherit;">
-                                        <i class="fas fa-globe" style="font-size: 1.2em; margin-right: 6px;"></i>
-                                        <strong>Site</strong>
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- end:: Project-->
-            <!-- Context-->
-            <section class="resume-section" id="context">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Context Me</h2>
-
-                <form id="contact-form">
-                <div style="margin-bottom: 1rem;">
-                    <label for="name" style="display:block; font-weight:bold;">이름 (Name)</label>
-                    <input type="text" id="name" name="name" required 
-                        style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label for="phone" style="display:block; font-weight:bold;">연락처 (Phone)</label>
-                    <input type="tel" id="phone" name="phone" required 
-                        style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc;">
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label for="message" style="display:block; font-weight:bold;">내용 (300자 이내)</label>
-                    <textarea id="message" name="message" maxlength="300" required 
-                            style="width:100%; padding:8px; border-radius:6px; border:1px solid #ccc; height:120px;"></textarea>
-                    <small style="color:gray;">최대 300자까지 입력 가능합니다.</small>
-                </div>
-                
-                <input type="hidden" id="current_time" name="time">
-
-                <button type="submit" 
-                        style="background-color:#007BFF; color:white; border:none; padding:10px 20px; border-radius:6px; cursor:pointer;">
-                    보내기
-                </button>
-                </form>
-
-                <p id="result-message" style="margin-top:1rem;"></p>
+            <div class="mt-4">
+              <h5 class="text-dark">
+                🛠 사내 인트라넷 및 전산 시스템 유지보수
+                <span class="lable-value">(2023.08 ~ 2025.05)</span>
+              </h5>
+              <ul>
+                <li>
+                  계측기, 공구, 자재 등 물품 관리 시스템 개발 및 점검일 관리
+                  자동화
+                </li>
+                <li>
+                  PLC 설비 제어 및 상태 알림 → 카카오톡 연동 알림 시스템 구현
+                </li>
+                <li>
+                  사내 음료 주문~제조~완료 관리 웹 구축, 사용자별 주문 로그 제공
+                </li>
+                <li>전력 시세(SMP) 자동 크롤링 윈도우 프로그램 개발</li>
+                <li>Classic ASP 기반 시스템 유지보수 및 기능 개선</li>
+              </ul>
+              <div class="mt-2">
+                <strong>Skill Keywords:</strong><br />
+                <span class="badge bg-light text-dark">Classic ASP</span>
+                <span class="badge bg-light text-dark">MSSQL</span>
+                <span class="badge bg-light text-dark">Windows Forms</span>
+                <span class="badge bg-light text-dark">JavaScript</span>
+                <span class="badge bg-light text-dark">Kakao API</span>
+              </div>
             </div>
-            </section>
+          </div>
         </div>
-        <!--end:: Page Content-->
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+      </section>
+      <!-- /Experience -->
 
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <hr class="m-0" />
 
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <!-- Skills -->
+      <section class="resume-section" id="skills">
+        <div class="resume-section-content">
+          <h2 class="mb-5">SKILL</h2>
 
-        <!-- EmailJS v3 (UMD 방식, 완전 지원되는 방식) -->
-        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h4>언어 & 프레임워크</h4>
+              <ul>
+                <li>C#</li>
+                <li>Java (전자정부프레임워크)</li>
+                <li>Classic ASP</li>
+                <li>HTML / CSS / JavaScript</li>
+                <li>JSP / JSTL</li>
+                <li>Spring / Spring MVC</li>
+                <li>.NET Core 3.1 / .NET 6.0 이상</li>
+                <li>SignalR</li>
+                <li>jQuery</li>
+              </ul>
+            </div>
 
-        <script>
-        $(document).ready(function () {
-            // ✅ EmailJS 초기화 (Public Key 삽입)
-            emailjs.init("2gYnAmxvmq0x22uV1");
+            <div class="skill-category">
+              <h4>서버 · 배포 · DB</h4>
+              <ul>
+                <li>Oracle Database</li>
+                <li>Microsoft SQL Server</li>
+                <li>MariaDB</li>
+                <li>Apache Tomcat</li>
+                <li>IIS</li>
+                <li>Linux (CentOS / Rocky Linux)</li>
+                <li>AWS EC2</li>
+              </ul>
+            </div>
 
-            $('#contact-form').on('submit', function (e) {
-            e.preventDefault();
+            <div class="skill-category">
+              <h4>Tools & IDEs</h4>
+              <ul>
+                <li>Git / GitHub / Sourcetree</li>
+                <li>SVN / TortoiseSVN</li>
+                <li>Visual Studio</li>
+                <li>Visual Studio Code</li>
+                <li>Eclipse / IntelliJ IDEA</li>
+                <li>SQL Developer</li>
+                <li>Excel / PowerPoint / Visio</li>
+              </ul>
+            </div>
 
-            // 1. 현재 시간 생성
-            const now = new Date();
-            const formattedTime = now.toLocaleString('ko-KR', {
-                timeZone: 'Asia/Seoul',
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit'
-            });
+            <div class="skill-category">
+              <h4>기타 기술</h4>
+              <ul>
+                <li>전자정부프레임워크(eGovFrame)</li>
+                <li>MyBatis / iBatis</li>
+                <li>공공기관 운영 · 유지보수(SM)</li>
+                <li>배치 프로그램 운영 및 장애 대응</li>
+                <li>SQL 튜닝 및 운영 쿼리 분석</li>
+                <li>Kakao BizTalk API</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Skills -->
 
-            // 2. hidden input에 값 넣기
-            $('#current_time').val(formattedTime);
+      <hr class="m-0" />
 
-            // 3. 이메일 전송
-            const form = this;
-            emailjs.sendForm('silee_resume', 'template_qgo2idm', form)
-                .then(function () {
-                $('#result-message').text("✅ 메시지가 성공적으로 전송되었습니다.");
-                alert(
-                    "📨 소중한 연락 감사드립니다.\n\n" +
-                    "확인 후 빠르게 연락드리겠습니다.\n" +
-                    "좋은 하루 보내세요! :D"
-                );
-                }, function (error) {
-                console.error("❌ EmailJS 오류:", error);
-                $('#result-message').text("❌ 전송에 실패했습니다. 콘솔을 확인해주세요.");
-                });
+      <!-- Toy Project -->
+      <section class="resume-section" id="toy-project">
+        <div class="resume-section-content">
+          <h2 class="mb-5">Toy Project</h2>
 
-            form.reset();
-            });
+          <style>
+            .row-project {
+              margin-bottom: 60px;
+            }
+          </style>
+
+          <!-- 프로젝트 1 -->
+          <div class="row-project">
+            <div class="row mb-3">
+              <div class="col-md-3">
+                <div class="fw-bold" style="font-size: 2.3rem; color: #000">
+                  실시간 고장 관제
+                </div>
+              </div>
+              <div class="col-md-9" style="margin-top: 13px">
+                <h3 class="lable-value">2025-05 ~ 2025-05</h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5">
+                <div style="position: relative; width: 450px">
+                  <img
+                    src="./assets/img/monitor.png"
+                    alt=""
+                    style="width: 100%; display: block"
+                  />
+                  <!-- (선택) 기존 gif 유지 -->
+                  <img
+                    src="./assets/gif/web.gif"
+                    alt="web gif"
+                    style="
+                      position: absolute;
+                      top: 6%;
+                      left: 1.5%;
+                      width: 97%;
+                      height: 61%;
+                      pointer-events: none;
+                    "
+                  />
+                </div>
+              </div>
+
+              <div
+                class="col-md-7"
+                style="
+                  padding-left: 25px;
+                  display: flex;
+                  flex-direction: column;
+                "
+              >
+                <h3><strong>About.</strong></h3>
+                <p>
+                  차량에서 발생하는 고장이나 사고 정보를
+                  <strong>실시간으로 감지</strong>하고, <br />
+                  지도 기반으로 위치를 시각화하여
+                  <strong>신속한 상황 대응</strong>을 돕는 웹 관제 솔루션입니다.
+                </p>
+                <p>
+                  <strong>실시간 알림 + 지도 시각화 + 통계 대시보드</strong>
+                  기능을 통해 <br />
+                  운영자가 고장 현황을 한눈에 파악하고 빠르게 조치할 수 있도록
+                  지원합니다.
+                </p>
+
+                <hr />
+
+                <h3><strong>Stack.</strong></h3>
+                <p style="font-size: 0.95em">
+                  <strong>Frontend:</strong> HTML, CSS, JavaScript, Bootstrap,
+                  jQuery, Leaflet.js<br />
+                  <strong>Backend:</strong> .NET 8 MVC, SignalR, C#<br />
+                  <strong>Database:</strong> MSSQL, SQL Dependency, Service
+                  Broker<br />
+                  <strong>Infra:</strong> AWS EC2, IIS
+                </p>
+
+                <p class="h4">
+                  <a
+                    href="https://github.com/leesein1/FaultMon"
+                    target="_blank"
+                    style="
+                      text-decoration: none;
+                      color: inherit;
+                      margin-right: 20px;
+                    "
+                  >
+                    <i
+                      class="fab fa-github"
+                      style="font-size: 1.2em; margin-right: 6px"
+                    ></i>
+                    <strong>GitHub</strong>
+                  </a>
+
+                  <a
+                    href="http://silee-portfolio1.shop/"
+                    target="_blank"
+                    style="
+                      text-decoration: none;
+                      color: inherit;
+                      margin-right: 20px;
+                    "
+                  >
+                    <i
+                      class="fas fa-globe"
+                      style="font-size: 1.2em; margin-right: 6px"
+                    ></i>
+                    <strong>Site</strong>
+                  </a>
+
+                  <a
+                    href="./assets/video/web.mp4"
+                    target="_blank"
+                    style="text-decoration: none; color: inherit"
+                  >
+                    <i
+                      class="fas fa-video"
+                      style="font-size: 1.2em; margin-right: 6px"
+                    ></i>
+                    <strong>Video</strong>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 프로젝트 2 -->
+          <div class="row-project">
+            <div class="row mb-3">
+              <div class="col-md-3">
+                <div class="fw-bold" style="font-size: 2.2rem; color: #000">
+                  𝕏(Twitter) 클론
+                </div>
+              </div>
+              <div class="col-md-9" style="margin-top: 13px">
+                <h3 class="lable-value">2025.06 ~ 2025.07</h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5">
+                <div style="position: relative; width: 450px">
+                  <img
+                    src="./assets/img/monitor.png"
+                    alt=""
+                    style="width: 100%; display: block"
+                  />
+
+                  <video
+                    src="./assets/video/x-clone.mp4"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    preload="metadata"
+                    style="
+                      position: absolute;
+                      top: 6%;
+                      left: 7.5%;
+                      width: 84%;
+                      height: 52.5%;
+                      object-fit: cover;
+                      pointer-events: none;
+                    "
+                  ></video>
+                </div>
+              </div>
+
+              <div
+                class="col-md-7"
+                style="
+                  padding-left: 25px;
+                  display: flex;
+                  flex-direction: column;
+                "
+              >
+                <h3><strong>About.</strong></h3>
+                <p>
+                  <strong>X (Twitter) 기능을 모방</strong>한 SNS 웹
+                  애플리케이션입니다.<br />
+                  최근 <strong>React 및 TypeScript</strong>에 관심이 생겨
+                  공부하던 중 Firebase를 활용하여<br />
+                  <strong>각종 기능(이미지, oAuth로그인 등)</strong> 및
+                  <strong>AWS가 아닌 호스팅</strong>까지 공부하고 싶어<br />
+                  준비한 프로젝트입니다.<br /><br />
+                  아래 <strong>Github 및 Site</strong>를 참고해주세요!
+                </p>
+
+                <hr />
+
+                <h3><strong>Stack.</strong></h3>
+                <p style="font-size: 0.95em">
+                  <strong>Frontend:</strong> React, TypeScript, Vite <br />
+                  <strong>Backend (BaaS):</strong> Firebase (Auth, Firestore,
+                  Storage)<br />
+                  <strong>Infra:</strong> Firebase Hosting
+                </p>
+
+                <p class="h4">
+                  <a
+                    href="https://github.com/leesein1/x-clone"
+                    target="_blank"
+                    style="
+                      text-decoration: none;
+                      color: inherit;
+                      margin-right: 20px;
+                    "
+                  >
+                    <i
+                      class="fab fa-github"
+                      style="font-size: 1.2em; margin-right: 6px"
+                    ></i>
+                    <strong>GitHub</strong>
+                  </a>
+
+                  <a
+                    href="https://x-clone-d17bb.web.app"
+                    target="_blank"
+                    style="
+                      text-decoration: none;
+                      color: inherit;
+                      margin-right: 20px;
+                    "
+                  >
+                    <i
+                      class="fas fa-globe"
+                      style="font-size: 1.2em; margin-right: 6px"
+                    ></i>
+                    <strong>Site</strong>
+                  </a>
+
+                  <a
+                    href="./assets/video/x-clone.mp4"
+                    target="_blank"
+                    style="text-decoration: none; color: inherit"
+                  >
+                    <i
+                      class="fas fa-video"
+                      style="font-size: 1.2em; margin-right: 6px"
+                    ></i>
+                    <strong>Video</strong>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Toy Project -->
+
+      <hr class="m-0" />
+
+      <!-- Contact -->
+      <section class="resume-section" id="context">
+        <div class="resume-section-content">
+          <h2 class="mb-5">Context Me</h2>
+
+          <form id="contact-form">
+            <div style="margin-bottom: 1rem">
+              <label for="name" style="display: block; font-weight: bold"
+                >이름 (Name)</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                style="
+                  width: 100%;
+                  padding: 8px;
+                  border-radius: 6px;
+                  border: 1px solid #ccc;
+                "
+              />
+            </div>
+
+            <div style="margin-bottom: 1rem">
+              <label for="phone" style="display: block; font-weight: bold"
+                >연락처 (Phone)</label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                style="
+                  width: 100%;
+                  padding: 8px;
+                  border-radius: 6px;
+                  border: 1px solid #ccc;
+                "
+              />
+            </div>
+
+            <div style="margin-bottom: 1rem">
+              <label for="message" style="display: block; font-weight: bold"
+                >내용 (300자 이내)</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                maxlength="300"
+                required
+                style="
+                  width: 100%;
+                  padding: 8px;
+                  border-radius: 6px;
+                  border: 1px solid #ccc;
+                  height: 120px;
+                "
+              ></textarea>
+              <small style="color: gray">최대 300자까지 입력 가능합니다.</small>
+            </div>
+
+            <input type="hidden" id="current_time" name="time" />
+
+            <button
+              type="submit"
+              style="
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 6px;
+                cursor: pointer;
+              "
+            >
+              보내기
+            </button>
+          </form>
+
+          <p id="result-message" style="margin-top: 1rem"></p>
+        </div>
+      </section>
+      <!-- /Contact -->
+    </div>
+    <!-- /Page Content -->
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+    <!-- jQuery (중복 제거: 1회만) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- EmailJS v3 (UMD) -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // EmailJS 로드 방어
+        if (window.emailjs) {
+          emailjs.init("2gYnAmxvmq0x22uV1");
+        } else {
+          console.error("EmailJS 로드 실패");
+          $("#result-message").text("❌ EmailJS 로드에 실패했습니다.");
+          return;
+        }
+
+        $("#contact-form").on("submit", function (e) {
+          e.preventDefault();
+
+          const now = new Date();
+          const formattedTime = now.toLocaleString("ko-KR", {
+            timeZone: "Asia/Seoul",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          });
+
+          $("#current_time").val(formattedTime);
+
+          const form = this;
+
+          emailjs.sendForm("silee_resume", "template_qgo2idm", form).then(
+            function () {
+              $("#result-message").text(
+                "✅ 메시지가 성공적으로 전송되었습니다."
+              );
+              alert(
+                "📨 소중한 연락 감사드립니다.\n\n" +
+                  "확인 후 빠르게 연락드리겠습니다.\n" +
+                  "좋은 하루 보내세요! :D"
+              );
+              form.reset();
+            },
+            function (error) {
+              console.error("❌ EmailJS 오류:", error);
+              $("#result-message").text(
+                "❌ 전송에 실패했습니다. 콘솔을 확인해주세요."
+              );
+            }
+          );
         });
-        </script>
-    </body>
-    <!-- end:: body tag -->
+      });
+    </script>
+  </body>
 </html>
