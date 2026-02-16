@@ -1,1 +1,89 @@
-테스트 페이지입니다.
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>허락/거절 데모</title>
+	<style>
+		body{font-family:system-ui,Segoe UI,Arial,sans-serif;padding:2rem;background:#f7f7fb;color:#111}
+		.container{max-width:720px;margin:2rem auto;text-align:center}
+		.btn{padding:.6rem 1rem;border-radius:8px;border:0;cursor:pointer;font-size:1rem;margin:0 .5rem}
+		.allow{background:#0b84ff;color:#fff}
+		.decline{background:#f3f4f6;color:#111}
+		p.note{font-size:.9rem;color:#556;margin-top:1rem}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>인터랙티브 데모: 허락 / 거절</h1>
+		<p>재미용 데모입니다. '거절' 버튼은 마우스가 가까워지면 피하지만, 접근성 때문에 키보드(Tab)와 모바일 터치에서는 항상 누를 수 있습니다.</p>
+
+		<div style="margin-top:2rem;">
+			<button class="btn allow" id="allowBtn">허락하기</button>
+			<button class="btn decline" id="declineBtn" aria-label="거절하기">거절하기</button>
+		</div>
+
+		<p class="note">모바일: 탭하면 바로 선택됩니다. 키보드: `Tab`으로 버튼에 포커스한 뒤 `Enter`로 선택하세요.</p>
+	</div>
+
+	<script>
+	(function(){
+		const decline = document.getElementById('declineBtn');
+		const allow = document.getElementById('allowBtn');
+		let enabled = true; // 마우스 회피 허용 여부
+		let stopTimer = null;
+		const STOP_AFTER_MS = 8000; // 일정 시간 후 회피 중단 (접근성 보장)
+
+		function clampPosition(x,y,w,h){
+			const pad = 8;
+			const vw = document.documentElement.clientWidth;
+			const vh = document.documentElement.clientHeight;
+			if(x + w + pad > vw) x = vw - w - pad;
+			if(y + h + pad > vh) y = vh - h - pad;
+			if(x < pad) x = pad;
+			if(y < pad) y = pad;
+			return {x,y};
+		}
+
+		function moveAway(mouseX, mouseY){
+			if(!enabled) return;
+			const rect = decline.getBoundingClientRect();
+			const cx = rect.left + rect.width/2;
+			const cy = rect.top + rect.height/2;
+			const dx = cx - mouseX;
+			const dy = cy - mouseY;
+			const dist = Math.hypot(dx,dy);
+			if(dist > 220) return; // 어느 정도 가까워져야 회피
+			// 이동량: 가까울수록 더 멀리 움직임
+			const strength = Math.max(60, 220 - dist);
+			let nx = rect.left + (dx/dist) * strength;
+			let ny = rect.top + (dy/dist) * (strength*0.6);
+			const p = clampPosition(nx, ny, rect.width, rect.height);
+			decline.style.position = 'fixed';
+			decline.style.left = p.x + 'px';
+			decline.style.top = p.y + 'px';
+		}
+
+		function startStopTimer(){
+			clearTimeout(stopTimer);
+			stopTimer = setTimeout(()=>{ enabled = false; }, STOP_AFTER_MS);
+		}
+
+		// 마우스가 가까워질 때 이동
+		document.addEventListener('mousemove', e => { moveAway(e.clientX, e.clientY); startStopTimer(); });
+
+		// 터치가 감지되면 회피 비활성화(모바일에서 탭 가능하도록)
+		document.addEventListener('touchstart', ()=>{ enabled = false; decline.style.position=''; decline.style.left=''; decline.style.top=''; });
+
+		// 포커스(키보드 접근)는 회피 비활성화
+		decline.addEventListener('focus', ()=>{ enabled = false; });
+
+		// 버튼 동작 (데모용)
+		allow.addEventListener('click', ()=>{ alert('허락을 선택했습니다. (데모)'); });
+		decline.addEventListener('click', ()=>{ alert('거절을 선택했습니다. (데모)'); });
+
+		startStopTimer();
+	})();
+	</script>
+</body>
+</html>
