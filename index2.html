@@ -1,89 +1,478 @@
 <!doctype html>
 <html lang="ko">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>허락/거절 데모</title>
-	<style>
-		body{font-family:system-ui,Segoe UI,Arial,sans-serif;padding:2rem;background:#f7f7fb;color:#111}
-		.container{max-width:720px;margin:2rem auto;text-align:center}
-		.btn{padding:.6rem 1rem;border-radius:8px;border:0;cursor:pointer;font-size:1rem;margin:0 .5rem}
-		.allow{background:#0b84ff;color:#fff}
-		.decline{background:#f3f4f6;color:#111}
-		p.note{font-size:.9rem;color:#556;margin-top:1rem}
-	</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>허락하시겠습니까?</title>
+  <style>
+    :root{
+      --bg1:#fef9f3; --bg2:#fff5f8;
+      --card:#fff8f0ee; --bd:#f5d9e8aa;
+      --text:#4a3f8c; --muted:#8b7ba8;
+      --yes:#ff85c3; --no:#ff6b9d; --ring:#9d8dd9;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:grid; place-items:center;
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial;
+      background:
+        radial-gradient(900px 500px at 20% 20%, #ffd9e8aa, transparent 60%),
+        radial-gradient(800px 600px at 80% 30%, #ffe5d9aa, transparent 55%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      color:var(--text); overflow:hidden;
+    }
+    .card{
+      width:min(680px, 92vw);
+      background:var(--card);
+      border:1px solid var(--bd);
+      border-radius:22px;
+      padding:26px;
+      box-shadow:0 20px 60px #00000055;
+      backdrop-filter: blur(8px);
+    }
+    h1{margin:0 0 8px;font-size:clamp(22px,3.2vw,30px)}
+    p{margin:0 0 16px;color:var(--muted);line-height:1.5}
+
+    .stage{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-start;
+      padding:16px;
+      border-radius:18px;
+      border:1px dashed #f5d9e8aa;
+      background:linear-gradient(180deg, #fffaf7cc, #fff5f8cc);
+    }
+    .btn{
+      border:0;
+      padding:16px 28px;
+      border-radius:14px;
+      font-weight:900;
+      cursor:pointer;
+      font-size:17px;
+      transition: transform .12s ease, filter .12s ease;
+      outline:none;
+      touch-action: manipulation;
+      min-height:52px;
+    }
+    .btn:focus-visible{ box-shadow:0 0 0 4px #0000, 0 0 0 4px var(--ring); }
+    #yesBtn{
+      background:linear-gradient(180deg, #ff97d1, #ff85c3);
+      color:#fff;
+      box-shadow:0 14px 30px #ff85c344;
+    }
+    #yesBtn:hover{ transform: translateY(-2px); }
+    #noBtn{
+      background:linear-gradient(180deg, #ff8ba3, #ff6b9d);
+      color:#fff;
+      box-shadow:0 14px 30px #ff6b9d44;
+    }
+    #noBtn[aria-disabled="true"]{
+      filter: grayscale(.5) brightness(1.05);
+      opacity:.7;
+    }
+    #noBtn:hover{ transform: translateY(-2px); }
+
+    .hud{display:flex; justify-content:space-between; margin-top:12px; color:var(--muted); font-size:13px}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid #f5d9e8; background:#fff5f8dd;
+    }
+
+    /* modal */
+    .modal{
+      position:fixed; inset:0;
+      display:none; place-items:center;
+      background:#00000033;
+      padding:18px;
+    }
+    .modal.show{ display:grid; }
+    .modalCard{
+      width:min(520px, 94vw);
+      border-radius:22px;
+      border:2px solid #f5d9e8;
+      background:#fff9f5f8;
+      box-shadow:0 30px 90px #ff85c322;
+      padding:20px;
+    }
+    .modalCard h2{margin:0 0 8px; font-size:20px}
+    .modalCard p{margin:0 0 12px}
+    .bar{
+      width:100%;
+      height:14px;
+      border-radius:999px;
+      border:1px solid #f5d9e8;
+      background:#fff5f8;
+      overflow:hidden;
+    }
+    .fill{
+      height:100%;
+      width:0%;
+      border-radius:999px;
+      background: linear-gradient(90deg, #ff85c3, #ff97d1);
+      transition: width .06s linear;
+    }
+    .holdBtn{
+      width:100%;
+      margin-top:12px;
+      background:#fff0f7;
+      color:var(--text);
+      border:1px solid #f5d9e8;
+      box-shadow:0 4px 12px #ff85c311;
+    }
+    .holdBtn:active{ transform: scale(.98); }
+    .row{display:flex; gap:10px; justify-content:flex-end; margin-top:14px; flex-wrap:wrap;}
+    .ghost{
+      background:#fff0f7;
+      color:var(--text);
+      border:1px solid #f5d9e8;
+      box-shadow:none;
+    }
+  </style>
 </head>
 <body>
-	<div class="container">
-		<h1>인터랙티브 데모: 허락 / 거절</h1>
-		<p>재미용 데모입니다. '거절' 버튼은 마우스가 가까워지면 피하지만, 접근성 때문에 키보드(Tab)와 모바일 터치에서는 항상 누를 수 있습니다.</p>
+  <div class="card">
+    <h1>🍺 이세인 술 저지 게임</h1>
+    <p id="subtitle">이세인이 술 마시러 가려고 합니다! 술 병을 터치해서 <b>2.5초간</b> 잡아두면 성공! 저지는 이 게임을 클리어해야 해금됩니다.</p>
 
-		<div style="margin-top:2rem;">
-			<button class="btn allow" id="allowBtn">허락하기</button>
-			<button class="btn decline" id="declineBtn" aria-label="거절하기">거절하기</button>
-		</div>
+    <div class="stage">
+      <button class="btn" id="yesBtn" type="button">술 마시고 가!</button>
+      <button class="btn" id="noBtn" type="button" aria-disabled="true">저지하기(잠김)</button>
+    </div>
 
-		<p class="note">모바일: 탭하면 바로 선택됩니다. 키보드: `Tab`으로 버튼에 포커스한 뒤 `Enter`로 선택하세요.</p>
-	</div>
+    <div class="hud">
+      <div class="pill">저지 상태: <b id="lockState">잠김</b></div>
+      <div class="pill">저지 성공: <b id="clears">0</b></div>
+    </div>
+  </div>
 
-	<script>
-	(function(){
-		const decline = document.getElementById('declineBtn');
-		const allow = document.getElementById('allowBtn');
-		let enabled = true; // 마우스 회피 허용 여부
-		let stopTimer = null;
-		const STOP_AFTER_MS = 8000; // 일정 시간 후 회피 중단 (접근성 보장)
+  <!-- 미니게임 모달 (업그레이드: 매우 어려운 정밀 유지 게임) -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="modalCard">
+      <h2 id="mTitle">🍺 술병을 잡아라!</h2>
+      <p id="mDesc">이세인의 술병을 손가락으로 계속 눌러서 <b>2.5초</b>를 버티세요! 🛡️<br>총 30초 안에 이 술병을 2.5초 이상 붙잡으면 성공!</p>
 
-		function clampPosition(x,y,w,h){
-			const pad = 8;
-			const vw = document.documentElement.clientWidth;
-			const vh = document.documentElement.clientHeight;
-			if(x + w + pad > vw) x = vw - w - pad;
-			if(y + h + pad > vh) y = vh - h - pad;
-			if(x < pad) x = pad;
-			if(y < pad) y = pad;
-			return {x,y};
-		}
+      <canvas id="gameCanvas" width="480" height="260" style="width:100%; height:auto; border-radius:12px; background:#fff5f8; display:block; margin-top:8px; touch-action:none;"></canvas>
 
-		function moveAway(mouseX, mouseY){
-			if(!enabled) return;
-			const rect = decline.getBoundingClientRect();
-			const cx = rect.left + rect.width/2;
-			const cy = rect.top + rect.height/2;
-			const dx = cx - mouseX;
-			const dy = cy - mouseY;
-			const dist = Math.hypot(dx,dy);
-			if(dist > 220) return; // 어느 정도 가까워져야 회피
-			// 이동량: 가까울수록 더 멀리 움직임
-			const strength = Math.max(60, 220 - dist);
-			let nx = rect.left + (dx/dist) * strength;
-			let ny = rect.top + (dy/dist) * (strength*0.6);
-			const p = clampPosition(nx, ny, rect.width, rect.height);
-			decline.style.position = 'fixed';
-			decline.style.left = p.x + 'px';
-			decline.style.top = p.y + 'px';
-		}
+      <div class="bar" aria-label="진행도" style="margin-top:10px;">
+        <div class="fill" id="fill"></div>
+      </div>
 
-		function startStopTimer(){
-			clearTimeout(stopTimer);
-			stopTimer = setTimeout(()=>{ enabled = false; }, STOP_AFTER_MS);
-		}
+      <div style="text-align:center; margin-top:8px; color:#8b7ba8; font-size:13px;">
+        제한시간: <b>2.5초</b>
+      </div>
 
-		// 마우스가 가까워질 때 이동
-		document.addEventListener('mousemove', e => { moveAway(e.clientX, e.clientY); startStopTimer(); });
+      <div style="display:flex; gap:8px; margin-top:12px;">
+        <button class="btn holdBtn" id="startBtn" type="button" style="flex:1;">�️ 시작</button>
+        <button class="btn holdBtn" id="cancelBtn" type="button" style="flex:1; background:#f0a8c8; box-shadow:0 14px 30px #ff85c322;">취소</button>
+      </div>
+    </div>
+  </div>
 
-		// 터치가 감지되면 회피 비활성화(모바일에서 탭 가능하도록)
-		document.addEventListener('touchstart', ()=>{ enabled = false; decline.style.position=''; decline.style.left=''; decline.style.top=''; });
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const lockState = document.getElementById("lockState");
+    const clearsEl = document.getElementById("clears");
 
-		// 포커스(키보드 접근)는 회피 비활성화
-		decline.addEventListener('focus', ()=>{ enabled = false; });
+    const modal = document.getElementById("modal");
+    const fill = document.getElementById("fill");
+    const startBtn = document.getElementById("startBtn");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
 
-		// 버튼 동작 (데모용)
-		allow.addEventListener('click', ()=>{ alert('허락을 선택했습니다. (데모)'); });
-		decline.addEventListener('click', ()=>{ alert('거절을 선택했습니다. (데모)'); });
+    let unlocked = false;
+    let clears = 0;
 
-		startStopTimer();
-	})();
-	</script>
+    const GAME_TIME_MS = 30000; // 총 30초 제한시간
+    const UNLOCK_HOLD_MS = 2500; // 반대 해금에 필요한 날 미니게임 2.5초
+    const MOVE_INTERVAL = 450; // 목표가 움직이는 간격
+    const RADIUS_MAX = 32;   // 크기가 더 크게
+    const RADIUS_MIN = 18;   // 최소 크기도 크게
+    const TELEPORT_CHANCE = 0.08; // 순간이동은 드물게
+    const GRACE_MS = 200; // 최대 역눌러진 여유
+
+    let running = false;
+    let target = { x: 50, y: 50, r: RADIUS_MAX };
+    let lastMoveTs = 0;
+    let lastInsideTs = 0;
+    let holdStart = 0; // 연속 누를 시작 시간
+    let gameStartTime = 0; // 게임 시작 시간
+    let progress = 0;
+    let moveIntervalId = null;
+    let raf = null;
+    let unlockedJustNow = false; // 방금 해금됐는지
+
+    function setUnlocked(v){
+      unlocked = v;
+      if (unlocked){
+        noBtn.textContent = "저지하기(해금됨)";
+        noBtn.setAttribute("aria-disabled", "false");
+        lockState.textContent = "해금";
+      } else {
+        noBtn.textContent = "저지하기(잠김)";
+        noBtn.setAttribute("aria-disabled", "true");
+        lockState.textContent = "잠김";
+      }
+    }
+
+    function openModal(){
+      fill.style.width = "0%";
+      modal.classList.add("show");
+      startBtn.focus();
+    }
+    function closeModal(){
+      modal.classList.remove("show");
+      stopGame();
+      noBtn.focus();
+    }
+
+    function resizeCanvas(){
+      // 캔버스 내부 픽셀 비율 보정
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(240, Math.floor(rect.width * dpr));
+      canvas.height = Math.max(140, Math.floor(rect.height * dpr));
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+
+    function rand(min, max){ return Math.random()*(max-min)+min; }
+
+    function moveTarget(){
+      const w = canvas.width / (window.devicePixelRatio || 1);
+      const h = canvas.height / (window.devicePixelRatio || 1);
+      // 크기를 부드럽게 조정 (더 드나운 캐릭터 같은 느낌)
+      target.r = rand(RADIUS_MIN, RADIUS_MAX);
+      if (Math.random() < TELEPORT_CHANCE){
+        // 순간이동: 드물지만 나타남
+        target.x = rand(target.r*1.5, w-target.r*1.5);
+        target.y = rand(target.r*1.5, h-target.r*1.5);
+      } else {
+        // 느리고 부드러운 이동
+        target.x = Math.min(Math.max(target.r*1.5, target.x + rand(-w*0.22, w*0.22)), w-target.r*1.5);
+        target.y = Math.min(Math.max(target.r*1.5, target.y + rand(-h*0.22, h*0.22)), h-target.r*1.5);
+      }
+      lastMoveTs = performance.now();
+    }
+
+    // 캔버스 배경 및 게임 드로우 함수 - 아기자기한 색상
+    function draw(){
+      const w = canvas.width / (window.devicePixelRatio || 1);
+      const h = canvas.height / (window.devicePixelRatio || 1);
+      ctx.clearRect(0,0,w,h);
+      
+      // 밝은 파스텔 배경
+      ctx.fillStyle = '#fff5f8';
+      ctx.fillRect(0,0,w,h);
+      
+      // 배경 장식: 귀여운 구름 모양
+      ctx.fillStyle = '#ffe5f0';
+      ctx.beginPath();
+      ctx.arc(w*0.12, h*0.15, 28, 0, Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(w*0.22, h*0.12, 22, 0, Math.PI*2);
+      ctx.fill();
+      
+      ctx.beginPath();
+      ctx.arc(w*0.85, h*0.72, 35, 0, Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(w*0.78, h*0.82, 26, 0, Math.PI*2);
+      ctx.fill();
+      
+      // 별 장식
+      const drawStar = (cx, cy, size) => {
+        ctx.fillStyle = '#ffc0e0';
+        ctx.beginPath();
+        for(let i=0; i<5; i++){
+          const a = (i*4*Math.PI)/5 - Math.PI/2;
+          const r = i%2 ? size*0.4 : size;
+          const x = cx + Math.cos(a)*r;
+          const y = cy + Math.sin(a)*r;
+          i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+        }
+        ctx.closePath();
+        ctx.fill();
+      };
+      drawStar(w*0.18, h*0.75, 8);
+      drawStar(w*0.8, h*0.25, 6);
+      drawStar(w*0.3, h*0.35, 7);
+      
+      // 주요 목표: 토끼 이모지로 간단하게 표현
+      const tx = target.x, ty = target.y, tr = target.r;
+      
+      // 술병 이모지 그리기
+      ctx.font = 'bold ' + (tr*2.5) + 'px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('🍺', tx, ty);
+      ctx.textAlign = 'left';
+      
+      // 진행도 텍스트 (2.5초에서 줄어들기)
+      ctx.fillStyle = '#8b7ba8';
+      ctx.font = 'bold 13px system-ui, Roboto, "Noto Sans KR"';
+      const currentTime = performance.now();
+      const heldMs = (holdStart > 0) ? (currentTime - holdStart) : 0;
+      const remainingHoldMs = Math.max(0, UNLOCK_HOLD_MS - heldMs);
+      const remainingHoldSeconds = (remainingHoldMs / 1000).toFixed(1);
+      ctx.fillText('누르기: ' + remainingHoldSeconds + 's', 12, 22);
+      
+      // 큰 타이머 표시 (게임 남은 시간)
+      const remainingMs = Math.max(0, GAME_TIME_MS - progress);
+      const remainingSeconds = (remainingMs / 1000).toFixed(1);
+      ctx.fillStyle = '#ff85c3';
+      ctx.font = 'bold 28px system-ui, Roboto, "Noto Sans KR"';
+      ctx.textAlign = 'center';
+      ctx.fillText(remainingSeconds + 's', canvas.width/(window.devicePixelRatio||1)/2, 50);
+      ctx.textAlign = 'left';
+    }
+
+    function gameLoop(){
+      const now = performance.now();
+      // 게임 경과 시간 계산
+      progress = now - gameStartTime;
+      
+      // 자동으로 목표 이동 주기
+      if (now - lastMoveTs >= MOVE_INTERVAL) moveTarget();
+
+      // 게임 타임아웃 확인
+      if (progress >= GAME_TIME_MS){
+        // 게임 시간 초과
+        alert('떼잉 실패했군요..~\n\n이세인이 술을 마실 수 밖에 없어용~ ㅠㅠ');
+        closeModal();
+        return;
+      }
+
+      // 누르기 시간 확인
+      let currentHoldTime = 0;
+      if (holdStart > 0){
+        currentHoldTime = now - holdStart;
+        // 2.5초 이상 누르면 해금
+        if (currentHoldTime >= UNLOCK_HOLD_MS && !unlockedJustNow){
+          unlockedJustNow = true;
+          clears += 1;
+          clearsEl.textContent = String(clears);
+          setUnlocked(true);
+          alert('🎉 성공! 이세인의 술을 막았습니다!\n\n저지하기가 해금되었습니다!\n\n성공해도 먹을거에욤 아마도..~?');
+        }
+      }
+      
+      // 진행도 바 업데이트 (게임 전체 시간을 기준으로)
+      fill.style.width = Math.min(100, (progress / GAME_TIME_MS) * 100) + '%';
+
+      draw();
+      raf = requestAnimationFrame(gameLoop);
+    }
+
+    // 포인터 검사: 포인터가 목표 내부인가
+    function pointerIsInside(px, py){
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      const cx = px - rect.left;
+      const cy = py - rect.top;
+      const dx = cx - target.x;
+      const dy = cy - target.y;
+      const touchRadius = target.r * 1.15; // 모바일에서 터치하기 더 쉽게
+      return (dx*dx + dy*dy) <= (touchRadius*touchRadius);
+    }
+
+    function onPointerMove(e){
+      if (!running) return;
+      const pInside = pointerIsInside(e.clientX, e.clientY);
+      const now = performance.now();
+      if (pInside){
+        if (holdStart === 0){
+          // 누르기 시작
+          holdStart = now;
+        }
+        lastInsideTs = now;
+      } else {
+        // 밖으로 나가면 잠깐 후에 리셋
+        setTimeout(() => {
+          if (performance.now() - lastInsideTs > GRACE_MS){
+            holdStart = 0;
+          }
+        }, GRACE_MS + 10);
+      }
+    }
+
+    function startGame(){
+      if (running) return;
+      running = true;
+      progress = 0;
+      fill.style.width = '0%';
+      gameStartTime = performance.now();
+      holdStart = 0;
+      lastInsideTs = 0;
+      unlockedJustNow = false;
+      resizeCanvas();
+      // 초기 위치 랜덤화
+      target.x = rand(30, (canvas.width/(window.devicePixelRatio||1)) - 30);
+      target.y = rand(30, (canvas.height/(window.devicePixelRatio||1)) - 30);
+      target.r = RADIUS_MAX;
+      lastMoveTs = performance.now();
+      holdStart = 0; lastInsideTs = 0;
+      // 포인터 및 터치 이벤트 바인딩
+      canvas.style.touchAction = 'none';
+      canvas.addEventListener('pointermove', onPointerMove, {passive:true});
+      canvas.addEventListener('pointerdown', onPointerMove, {passive:false});
+      canvas.addEventListener('pointerup', (e)=> onPointerMove(e), {passive:true});
+      canvas.addEventListener('pointercancel', ()=> { holdStart=0; }, {passive:true});
+      canvas.addEventListener('pointerleave', (e)=> onPointerMove(e), {passive:true});
+      window.addEventListener('resize', resizeCanvas);
+      // 시작 루프
+      moveIntervalId = setInterval(moveTarget, MOVE_INTERVAL + 30);
+      raf = requestAnimationFrame(gameLoop);
+      startBtn.textContent = '�️ 술병 잡는 중...!';
+    }
+
+    function stopGame(){
+      running = false;
+      progress = 0;
+      fill.style.width = '0%';
+      holdStart = 0; 
+      lastInsideTs = 0;
+      gameStartTime = 0;
+      cancelAnimationFrame(raf);
+      clearInterval(moveIntervalId);
+      canvas.style.touchAction = '';
+      canvas.removeEventListener('pointermove', onPointerMove);
+      canvas.removeEventListener('pointerdown', onPointerMove);
+      canvas.removeEventListener('pointerup', onPointerMove);
+      canvas.removeEventListener('pointercancel', onPointerMove);
+      canvas.removeEventListener('pointerleave', onPointerMove);
+      window.removeEventListener('resize', resizeCanvas);
+      startBtn.textContent = '�️ 술병 잡기!';
+      draw();
+    }
+
+    // 버튼 이벤트
+    yesBtn.addEventListener("click", () => {
+      alert("✅ 이세인 술 마시고 와! 조졌어\n\n(남은 술은 누가 먹냐고...)");
+    });
+
+    noBtn.addEventListener("click", () => {
+      if (!unlocked){
+        openModal();
+        return;
+      }
+      alert("🛡️ 성공! 이세인의 술 마시는 것을 저지했습니다!\n\n우리의 승리다!");
+    });
+
+    startBtn.addEventListener('click', () => {
+      startGame();
+    });
+
+    cancelBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    // 초기화
+    setUnlocked(false);
+    resizeCanvas();
+  </script>
 </body>
 </html>
