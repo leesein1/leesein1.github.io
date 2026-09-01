@@ -73,6 +73,14 @@
 3. 차량사업소 현장 시험에 참여하여 오류를 확인하고 사용자 피드백을 반영
 4. 신규 프로젝트 추가 절차를 수립하고 관련 내용을 문서화
 
+### 🛠️ 주요 사용 기술
+
+- C# / .NET Core 3.1
+- ASP.NET Core MVC / SignalR
+- MSSQL / SQL Dependency / Service Broker
+- JavaScript / jQuery / Leaflet.js
+- IIS
+
 ### 📈 성과
 
 - 고속철 3개·전동차 2개·일반차량처 7개 등 총 12개 프로젝트 데이터 통합
